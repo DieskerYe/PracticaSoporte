@@ -8,9 +8,9 @@ def maximo_encadenado(a: float, b: float, c: float) -> float:
     Referencia: https://docs.python.org/3/reference/expressions.html#comparisons
     """
     pass # Completar
-    if (a > b and a > c):
+    if a > b and a > c:
         return a
-    elif (b > a and b > c):
+    elif b > a and b > c:
         return b
     else:
         return c

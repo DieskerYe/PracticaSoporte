@@ -16,7 +16,7 @@ def multiplicar_basico(numeros: Iterable[float]) -> float:
         total = total * n
       return total
     else:
-      return 0;
+      return 0
 
 # NO MODIFICAR - INICIO
 assert multiplicar_basico([1, 2, 3, 4]) == 24
@@ -40,8 +40,7 @@ def multiplicar_reduce(numeros: Iterable[float]) -> float:
     pass # Completar
     if numeros:
       return reduce(lambda x, y: x * y, numeros)
-    else:
-      return 0
+    return 0
 
 # NO MODIFICAR - INICIO
 if __name__ == "__main__":
