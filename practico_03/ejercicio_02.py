@@ -11,6 +11,16 @@ class Articulo:
     """
 
     # Completar
+    _last_id = 0
+
+    def __init__(self, nombre=""):
+        self.nombre = nombre
+        self.id_ = self.getid()
+
+    @classmethod
+    def getid(cls):
+        cls._last_id += 1
+        return cls._last_id
 
 
 # NO MODIFICAR - INICIO

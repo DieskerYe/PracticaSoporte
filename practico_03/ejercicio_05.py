@@ -12,18 +12,32 @@ class Auto:
     Referencia: https://docs.python.org/3/library/functions.html#property"""
 
     # Completar
+    def __init__(self, marca=None, precio=None):
+        self._marca = marca
+        self._precio = precio
 
+    @property
+    def marca(self):
+        return self._marca.capitalize()
+
+    @property
+    def precio(self) -> float:
+        return round(self._precio, 2)
+
+    @precio.setter
+    def precio(self, value):
+        self._precio = value
 
 # NO MODIFICAR - INICIO
 auto = Auto("Ford", 12_875.456)
 
-assert auto.nombre == "Ford"
+assert auto.marca == "Ford"
 assert auto.precio == 12_875.46
 auto.precio = 13_874.349
 assert auto.precio == 13_874.35
 
 try:
-    auto.nombre = "Chevrolet"
+    auto.marca = "Chevrolet"
     assert False
 except AttributeError:
     assert True
@@ -40,18 +54,31 @@ class Auto:
     """Re-Escribir utilizando DataClasses"""
 
     # Completar
+    _marca: str = None
+    _precio: float = 0
 
+    @property
+    def marca(self):
+        return self._marca.capitalize()
+
+    @property
+    def precio(self) -> float:
+        return round(self._precio, 2)
+
+    @precio.setter
+    def precio(self, value):
+        self._precio = value
 
 # NO MODIFICAR - INICIO
 auto = Auto("Ford", 12_875.456)
 
-assert auto.nombre == "Ford"
+assert auto.marca == "Ford"
 assert auto.precio == 12_875.46
 auto.precio = 13_874.349
 assert auto.precio == 13_874.35
 
 try:
-    auto.nombre = "Chevrolet"
+    auto.marca = "Chevrolet"
     assert False
 except AttributeError:
     assert True

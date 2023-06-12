@@ -25,7 +25,11 @@ def actualizar_precio(articulos: List[Articulo], porcentaje: float) -> List[Arti
     """
     
     # Completar
-
+    lista = []
+    for articulo in deepcopy(articulos):
+        articulo.precio *= 1 + porcentaje / 100
+        lista.append(articulo)
+    return lista
 
 # NO MODIFICAR - INICIO
 nombres = ["sabana", "parlante", "computadora", "tasa", "botella", "celular"]
