@@ -1,6 +1,8 @@
 """Base de Datos SQL - Alta"""
 
 import datetime
+import sqlite3
+
 from practico_04.ejercicio_01 import reset_tabla
 
 
@@ -8,7 +10,17 @@ def agregar_persona(nombre, nacimiento, dni, altura):
     """Implementar la funcion agregar_persona, que inserte un registro en la 
     tabla Persona y devuelva los datos ingresados el id del nuevo registro."""
     pass # Completar
-
+    persona = (nombre, nacimiento, dni, altura)
+    conn = sqlite3.connect("practico04.db")
+    cursor = conn.cursor()
+    cursor.execute('''
+        INSERT INTO Personas (nombre, fechaNacimiento, dni, altura) 
+        VALUES (:nombre, :nacimiento, :dni, :altura)
+        ''', persona)
+    id_persona = cursor.lastrowid
+    conn.commit()
+    conn.close()
+    return id_persona
 
 # NO MODIFICAR - INICIO
 @reset_tabla

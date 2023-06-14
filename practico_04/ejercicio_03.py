@@ -1,6 +1,7 @@
 """Base de Datos SQL - Baja"""
 
 import datetime
+import sqlite3
 
 from practico_04.ejercicio_01 import reset_tabla
 from practico_04.ejercicio_02 import agregar_persona
@@ -11,6 +12,16 @@ def borrar_persona(id_persona):
     tabla Persona. Devuelve un booleano en base a si encontro el registro y lo 
     borro o no."""
     pass # Completar
+    conn = sqlite3.connect("practico04.db")
+    cursor = conn.cursor()
+    cursor.execute('''
+        DELETE FROM Personas
+        WHERE idPersona == ?
+        ''', (id_persona,))
+    filas_borradas = cursor.rowcount
+    conn.commit()
+    conn.close()
+    return filas_borradas > 0
 
 # NO MODIFICAR - INICIO
 @reset_tabla
